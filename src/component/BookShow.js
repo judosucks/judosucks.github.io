@@ -3,8 +3,8 @@ import BookEdit from './BookEdit'
 import useBooksContext from "../hooks/use-books-context";
 
 function BookShow({book}) {
-    const {deleteBookById,editBookById} = useBooksContext()
-   
+    const {deleteBookById} = useBooksContext()
+
     const [showEdit,
         setShowEdit] = useState(false)
     const handleDeleteClick = () => {
@@ -13,13 +13,10 @@ function BookShow({book}) {
 
     const handleEditClick = () => {
         setShowEdit(!showEdit)
-       
+
     }
     const handleSubmit = () => {
         setShowEdit(false)
-        editBookById(book.id)
-        console.log("edit",book.id)
-        
 
     }
     let content = <h3>{book.title}</h3>
@@ -28,12 +25,22 @@ function BookShow({book}) {
         console.log("where")
     }
     return (
-        <div className="cell">
-            <img alt="image" src={`https://picsum.photos/seed/${book.id}/300/200`}/>
-            <section className="section">
+        <div className="columns is-3">
+            
+            <img src={`https://picsum.photos/seed/${book.id}/300/200`}/>
+           
+            <section className="column is-info">
+                <div className="bd-notification is-primary">
                 {content}
-                <button className="button is-small is-outlined m-1" onClick={handleEditClick}>Edit</button>
-                <button className="button is-small is-outlined m-1" onClick={handleDeleteClick}>Delete</button>
+                </div>
+                <button
+                    className="button is-pulled-right is-small is-outlined m-1"
+                    onClick={handleEditClick}>Edit</button>
+                <button
+                    className="delete is-small is-pulled-right m-1"
+                    onClick={handleDeleteClick}>
+                   
+                </button>
             </section>
         </div>
     )

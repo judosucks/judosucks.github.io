@@ -13,10 +13,10 @@ function BookEdit({book, onSubmit}) {
         event.preventDefault();
         onSubmit()
         editBookById(book.id, title)
-        console.log(book.id,title)
+       
     }
     return (
-        <form className="field" onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit}>
             <div className="control">
                 <label className="label">Title</label>
 

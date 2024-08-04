@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    background-color: chocolate;
+    flex-direction: column;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+}
+.title-item0{
+    
+    order: 0;
+    flex-grow: 0;
+    flex-shrink: 0;
+    
+    width: 10rem;
+    text-align: center;
+    background-color: aliceblue;
+}
